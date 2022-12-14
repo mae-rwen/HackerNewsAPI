@@ -1,29 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-export default function NewsList() {
-  const [news, setNews] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("http://hn.algolia.com/api/v1/search?query=")
-      .then((response) => {
-        setNews(response.data.hits);
-        console.log(response.data.hits);
-        // console.log(response.data.hits[0].objectID);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  // axios
-  //   .get("http://hn.algolia.com/api/v1/search?query=React")
-  //   .then((response) => {
-  //     setNews(response);
-  //     console.log(news);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+export default function NewsList({news}) {
 
   return (
     <div className="NewList">
@@ -49,3 +25,5 @@ export default function NewsList() {
     </div>
   );
 }
+
+
