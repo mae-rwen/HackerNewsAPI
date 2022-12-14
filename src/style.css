@@ -1,12 +1,25 @@
 /* General styling */
 
-/* .App {
-   text-align: center;
-} */
+
 
 /* Navbar styling */
 
 
+
+
+/* SearchBar styling */
+
+.SearchBar {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   margin-top: 1rem;
+}
+
+.SearchBar input {
+   width: 30rem;
+}
 
 /* NewList styling */
 
