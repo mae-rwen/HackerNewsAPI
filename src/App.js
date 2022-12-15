@@ -33,12 +33,12 @@ function App() {
 
   return (
     <div className="App">
-    
       <OurNavbar />
-      <SearchBar news={news} setSearch={setSearch} />
-      <NewsList news={news}  setPage={setPage} />
+      <main className="content">
+        <SearchBar news={news} setSearch={setSearch} />
+        <NewsList news={news} setPage={setPage} />
+      </main>
       <Footer news={news} setSearch={setSearch} />
-      
     </div>
   );
 }
