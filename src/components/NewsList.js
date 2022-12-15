@@ -1,6 +1,4 @@
-
-export default function NewsList({news}) {
-
+export default function NewsList({ news }) {
   return (
     <div className="NewList">
       <ol>
@@ -12,12 +10,12 @@ export default function NewsList({news}) {
                 className="text-decoration-none text-dark"
                 target="_blank"
               >
-                <h3>{item.title}</h3>
+                <h4>{item.title}</h4>
               </a>
-              <span>
+              <p>
                 {item.points} points | created by {item.author} | created at{" "}
                 {item.created_at}
-              </span>
+              </p>
             </li>
           );
         })}
@@ -25,5 +23,3 @@ export default function NewsList({news}) {
     </div>
   );
 }
-
-
