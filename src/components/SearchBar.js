@@ -13,15 +13,13 @@ export default function SearchBar({ setSearch }) {
   };
 
   return (
-    <div className="SearchBar">
-      <form className="form-container" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="What are you searching for?"
-          onChange={handleSearchChange}
-        />
-        <button>Search</button>
-      </form>
-    </div>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="What are you searching for?"
+        onChange={handleSearchChange}
+      />
+      <button>Search</button>
+    </form>
   );
 }

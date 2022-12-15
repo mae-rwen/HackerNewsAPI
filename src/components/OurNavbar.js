@@ -1,21 +1,11 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
 export default function OurNavbar() {
-  function refreshPage() {
-    window.location.reload(false);
-  }
   return (
-    //<div>
     <Navbar bg="dark" expand="lg" variant="dark" className="fixed-top">
       <Container>
-        <button
-          onClick={refreshPage}
-          className="border px-1 me-2 bg-dark text-white"
-        >
-          Y
-        </button>
+        <button className="border px-1 me-2 bg-dark text-white">Y</button>
         <Navbar.Brand href="#home" className="text-white">
           Hacker News
         </Navbar.Brand>
@@ -50,6 +40,5 @@ export default function OurNavbar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    // </div>
   );
 }
