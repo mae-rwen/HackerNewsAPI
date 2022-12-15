@@ -6,29 +6,37 @@ import SearchBar from "./components/SearchBar";
 import "./style.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState("React");
-  
+
   useEffect(() => {
     axios
       .get(`http://hn.algolia.com/api/v1/search?query=${search}`)
       .then((response) => {
-        setNews(response.data.hits);
-      }) 
+        const res = response.data.hits;
+        if (res.length === 0) {
+          toast.error("No matching results");
+        } else {
+          setNews(res);
+        }
+      })
       .catch((err) => {
         console.log(err);
+        toast.error("Couldn't load data");
       });
   }, [search]);
 
   return (
     <div className="App">
       <OurNavbar />
-      <SearchBar news={news} setSearch={setSearch}/>
+      <SearchBar news={news} setSearch={setSearch} />
       <NewsList news={news} />
-      <Footer />
+      <Footer news={news} setSearch={setSearch} />
+      <ToastContainer />
     </div>
   );
 }
