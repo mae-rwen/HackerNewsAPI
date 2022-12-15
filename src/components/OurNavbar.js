@@ -3,12 +3,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 export default function OurNavbar() {
-  
+  const refreshPage = () => {
+    window.location.reload(false);
+  };
   return (
     <div>
       <Navbar bg="dark" expand="lg" variant="dark">
         <Container>
-          <button className="border me-2 bg-dark text-white">Y</button>
+          <button
+            onClick={refreshPage}
+            className="border me-2 bg-dark text-white"
+          >
+            Y
+          </button>
           <Navbar.Brand href="#home" className="text-white">
             Hacker News
           </Navbar.Brand>
