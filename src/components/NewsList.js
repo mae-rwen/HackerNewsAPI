@@ -1,4 +1,11 @@
-export default function NewsList({ news }) {
+import ReactPaginate from "react-paginate";
+
+export default function NewsList({news, setPage}) {
+
+    const handlePageClick = (data) => {
+    setPage(data.selected)
+  }
+
   return (
     <div className="NewList">
       <ol>
@@ -24,6 +31,23 @@ export default function NewsList({ news }) {
           );
         })}
       </ol>
+      <br />
+      <ReactPaginate 
+        previousLabel={'<<'}
+        nextLabel={'>>'}
+        breakLabel={'...'}
+        pageCount={50}
+        marginPagesDisplayed={3}
+        pageRangeDisplayed={3}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        pageClassName={'page-item'}
+        pageLinkClassName={'page-link text-dark'}
+        previousLinkClassName={'page-link text-dark'}
+        nextLinkClassName={'page-link text-dark'}
+        breakClassName={'page-link text-dark'}
+        activeClassName={'active'}
+      />
     </div>
   );
 }

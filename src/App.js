@@ -12,10 +12,11 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState("React");
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     axios
-      .get(`http://hn.algolia.com/api/v1/search?query=${search}`)
+      .get(`http://hn.algolia.com/api/v1/search?query=${search}&page=${page}`)
       .then((response) => {
         const res = response.data.hits;
         if (res.length === 0) {
@@ -28,15 +29,16 @@ function App() {
         console.log(err);
         toast.error("Couldn't load data");
       });
-  }, [search]);
+  }, [search, page]);
 
   return (
     <div className="App">
+    
       <OurNavbar />
       <SearchBar news={news} setSearch={setSearch} />
-      <NewsList news={news} />
+      <NewsList news={news}  setPage={setPage} />
       <Footer news={news} setSearch={setSearch} />
-      <ToastContainer />
+      
     </div>
   );
 }
