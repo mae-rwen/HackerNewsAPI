@@ -39,9 +39,11 @@ function App() {
   return (
     <div className="App">
       <OurNavbar />
+      <main className="content">
       <SearchBar news={news} setSearch={setSearch} />
-      {isLoading ? <div class="spinner-border" role="status">
-      <span class="sr-only"></span></div> : <NewsList news={news}  setPage={setPage} />}
+      {isLoading ? <div className="spinner-border" role="status">
+      <span className="sr-only"></span></div> : <NewsList news={news}  setPage={setPage} />}
+      </main>
       <Footer news={news} setSearch={setSearch} />
       <ToastContainer />
     </div>
