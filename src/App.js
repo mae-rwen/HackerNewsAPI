@@ -36,7 +36,7 @@ function App() {
       <OurNavbar />
       <main className="content">
         <SearchBar news={news} setSearch={setSearch} />
-        <NewsList news={news} setPage={setPage} />
+        <NewsList news={news} setPage={setPage} page={page}/>
       </main>
       <Footer news={news} setSearch={setSearch} />
     </div>

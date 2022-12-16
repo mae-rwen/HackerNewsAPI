@@ -1,8 +1,11 @@
-import ReactPaginate from "react-paginate";
+import Typography from '@mui/material/Typography';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
-export default function NewsList({ news, setPage }) {
-  const handlePageClick = (data) => {
-    setPage(data.selected);
+export default function NewsList({ news, setPage, page}) {
+  
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
   };
 
   return (
@@ -32,23 +35,12 @@ export default function NewsList({ news, setPage }) {
       </ol>
 
       <div className="paginatorContainer">
-      <ReactPaginate
-        previousLabel={"<<"}
-        nextLabel={">>"}
-        breakLabel={"..."}
-        pageCount={50}
-        marginPagesDisplayed={3}
-        pageRangeDisplayed={3}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        pageClassName={"page-item"}
-        pageLinkClassName={"page-link text-bg-dark"}
-        previousLinkClassName={"page-link text-bg-secondary"}
-        nextLinkClassName={"page-link text-bg-secondary"}
-        breakClassName={"page-link text-bg-secondary"}
-        activeClassName={"active"}
-      />
+      <Stack spacing={2}>
+      <Typography>Page: {page}</Typography>
+      <Pagination count={50} page={page} onChange={handleChange} />
+      </Stack>
       </div>
+
     </div>
   );
 }
