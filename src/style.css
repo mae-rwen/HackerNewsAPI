@@ -32,9 +32,11 @@
 
 /* NewList styling */
 
-.NewList p {
-  margin: 0;
-}
+/* .NewList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 
 ol ::marker {
   font-size: 15px;
@@ -46,6 +48,10 @@ ol {
 
 .newsLi {
    margin-bottom: 1rem;
+}
+
+.newsLi:hover {
+  background-color: rgba(53, 53, 53, 0.128);
 }
 
 /* Pagination styling */
