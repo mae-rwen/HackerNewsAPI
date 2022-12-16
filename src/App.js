@@ -42,7 +42,7 @@ function App() {
       <main className="content">
       <SearchBar news={news} setSearch={setSearch} />
       {isLoading ? <div className="spinner-border" role="status">
-      <span className="sr-only"></span></div> : <NewsList news={news}  setPage={setPage} />}
+      <span className="sr-only"></span></div> : <NewsList news={news} page={page} setPage={setPage} />}
       </main>
       <Footer news={news} setSearch={setSearch} />
       <ToastContainer />

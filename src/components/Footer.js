@@ -3,6 +3,16 @@ import SearchBar from "./SearchBar";
 export default function Footer({ news, setSearch }) {
   return (
     <div className=" py-2 bg-black">
+
+<ul className="nav justify-content-center">
+        <li className="nav-item">
+          <a href="#madeby" className="nav-link text-light">
+            Provided to you by Simran, Svjetlana, Agata & Nadja 💜
+          </a>
+        </li>
+      </ul>
+
+
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a href="#guidelines" className="nav-link text-light">
