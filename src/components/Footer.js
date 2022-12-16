@@ -5,42 +5,42 @@ export default function Footer({ news, setSearch }) {
     <div className=" py-2 bg-black">
       <ul className="nav justify-content-center">
         <li className="nav-item">
-          <a href="#" className="nav-link text-light">
+          <a href="#guidelines" className="nav-link text-light">
             Guidelines
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-light ">
+          <a href="#faq" className="nav-link text-light ">
             FAQ
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link px-2 text-light">
+          <a href="#lists" className="nav-link px-2 text-light">
             Lists
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-light">
+          <a href="#api" className="nav-link text-light">
             API
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-light ">
+          <a href="#security" className="nav-link text-light ">
             Security
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-light">
+          <a href="#legal" className="nav-link text-light">
             Legal
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-light">
-            Apply to YC
+          <a href="#apply" className="nav-link text-light">
+            Apply to G3
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-light">
+          <a href="#contact" className="nav-link text-light">
             Contact
           </a>
         </li>
