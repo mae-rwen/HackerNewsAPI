@@ -13,21 +13,26 @@ function App() {
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState("React");
   const [page, setPage] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true)
     axios
       .get(`http://hn.algolia.com/api/v1/search?query=${search}&page=${page}`)
       .then((response) => {
+        
         const res = response.data.hits;
         if (res.length === 0) {
           toast.error("No matching results");
         } else {
           setNews(res);
         }
+        setIsLoading(false);
       })
-      .catch((err) => {
+      .catch((err) => { 
         console.log(err);
         toast.error("Couldn't load data");
+        setIsLoading(false);
       });
   }, [search, page]);
 
@@ -36,7 +41,9 @@ function App() {
     
       <OurNavbar />
       <SearchBar news={news} setSearch={setSearch} />
-      <NewsList news={news}  setPage={setPage} />
+      {isLoading ? <div class="spinner-border" role="status">
+      <span class="sr-only"></span></div> : <NewsList news={news}  setPage={setPage} />}
+      
       <Footer news={news} setSearch={setSearch} />
       
     </div>
