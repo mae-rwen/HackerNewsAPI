@@ -1,10 +1,11 @@
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 
 export default function NewsList({ news, setPage, page}) {
   
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handleChange = (event, value) => {
+    event.preventDefault();
     setPage(value);
+    console.log(value)
   };
 
   return (
@@ -34,9 +35,7 @@ export default function NewsList({ news, setPage, page}) {
       </ol>
 
       <div className="paginatorContainer">
-      <Stack spacing={2}>
       <Pagination count={50} page={page} onChange={handleChange} />
-      </Stack>
       </div>
 
     </div>
