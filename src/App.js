@@ -23,7 +23,7 @@ function App() {
       .then((response) => {
         const res = response.data.hits;
         if (res.length === 0) {
-          toast.error("No matching results");
+          toast.error(`No matching results for ${search} `);
         } else {
           setNews(res);
         }
@@ -36,25 +36,28 @@ function App() {
       });
   }, [search, page]);
 
-  return (
-    <div className="App">
-      <OurNavbar />
-      <main className="content">
-        <SearchBar news={news} setSearch={setSearch} />
-        {error ? <Error /> : ""}
-        {isLoading ? (
-          <div className="spinner-border" role="status">
-            <span className="sr-only"></span>
-          </div>
-        ) : (
-          <NewsList news={news} setPage={setPage} />
-        )}
-      </main>
-      <Footer news={news} setSearch={setSearch} />
+  if (error) {
+    return <Error />;
+  } else {
+    return (
+      <div className="App">
+        <OurNavbar />
+        <main className="content">
+          <SearchBar news={news} setSearch={setSearch} />
+          {isLoading ? (
+            <div className="spinner-border" role="status">
+              <span className="sr-only"></span>
+            </div>
+          ) : (
+            <NewsList news={news} setPage={setPage} />
+          )}
+        </main>
+        <Footer news={news} setSearch={setSearch} />
 
-      <ToastContainer />
-    </div>
-  );
+        <ToastContainer />
+      </div>
+    );
+  }
 }
 
 export default App;
