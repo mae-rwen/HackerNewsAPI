@@ -8,19 +8,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Error from "./components/Error";
 
 function App() {
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState("React");
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [error, setError] = useState("");
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoading(true);
     axios
       .get(`http://hn.algolia.com/api/v1/search?query=${search}&page=${page}`)
       .then((response) => {
-        
         const res = response.data.hits;
         if (res.length === 0) {
           toast.error("No matching results");
@@ -29,9 +29,9 @@ function App() {
         }
         setIsLoading(false);
       })
-      .catch((err) => { 
+      .catch((err) => {
         console.log(err);
-        toast.error("Couldn't load data");
+        setError(err);
         setIsLoading(false);
       });
   }, [search, page]);
@@ -40,11 +40,18 @@ function App() {
     <div className="App">
       <OurNavbar />
       <main className="content">
-      <SearchBar news={news} setSearch={setSearch} />
-      {isLoading ? <div className="spinner-border" role="status">
-      <span className="sr-only"></span></div> : <NewsList news={news} page={page} setPage={setPage} />}
+        <SearchBar news={news} setSearch={setSearch} />
+        {error ? <Error /> : ""}
+        {isLoading ? (
+          <div className="spinner-border" role="status">
+            <span className="sr-only"></span>
+          </div>
+        ) : (
+          <NewsList news={news} setPage={setPage} />
+        )}
       </main>
       <Footer news={news} setSearch={setSearch} />
+
       <ToastContainer />
     </div>
   );
