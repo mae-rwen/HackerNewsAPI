@@ -8,18 +8,18 @@ export default function NewsList({ news, setPage }) {
   return (
     <div className="NewList">
       <ol>
-        {news.map((item) => {
+        {news.map((item, index) => {
           const date = item.created_at;
-          const formattedDate = new Date(date).toUTCString();
+          const formattedDate = new Date(date).toUTCString();     
 
           return (
-            <li key={item.objectID}>
+            <li className="newsLi" key={item.objectID}>             
               <a
                 href={item.url}
                 className="text-decoration-none text-dark"
                 target="_blank"
               >
-                <h4>{item.title ? item.title : "No title provided"}</h4>
+                <h5>{item.title ? item.title : "No title provided"}</h5>
               </a>
               <span>
                 {`${item.points !== 0 ? item.points : "no"}
@@ -30,7 +30,8 @@ export default function NewsList({ news, setPage }) {
           );
         })}
       </ol>
-      <br />
+
+      <div className="paginatorContainer">
       <ReactPaginate
         previousLabel={"<<"}
         nextLabel={">>"}
@@ -41,12 +42,13 @@ export default function NewsList({ news, setPage }) {
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
         pageClassName={"page-item"}
-        pageLinkClassName={"page-link text-dark"}
-        previousLinkClassName={"page-link text-dark"}
-        nextLinkClassName={"page-link text-dark"}
-        breakClassName={"page-link text-dark"}
+        pageLinkClassName={"page-link text-bg-dark"}
+        previousLinkClassName={"page-link text-bg-secondary"}
+        nextLinkClassName={"page-link text-bg-secondary"}
+        breakClassName={"page-link text-bg-secondary"}
         activeClassName={"active"}
       />
+      </div>
     </div>
   );
 }
