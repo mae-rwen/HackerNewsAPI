@@ -38,14 +38,12 @@ function App() {
 
   return (
     <div className="App">
-    
       <OurNavbar />
       <SearchBar news={news} setSearch={setSearch} />
       {isLoading ? <div class="spinner-border" role="status">
       <span class="sr-only"></span></div> : <NewsList news={news}  setPage={setPage} />}
-      
       <Footer news={news} setSearch={setSearch} />
-      
+      <ToastContainer />
     </div>
   );
 }

@@ -12,23 +12,16 @@ export default function SearchBar({ setSearch }) {
     setSearch(value);
     setValue("");
   };
-  const submitEnter = (event) => {
-    if (event.keyCode === 13) {
-      handleSubmit(event);
-    }
-  };
+ 
   return (
-    <div className="SearchBar">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onKeyDown={(e) => submitEnter(e)}
-          placeholder="What are you searching for?"
-          onChange={handleSearchChange}
-          value={value}
-        />
-        <button>Search</button>
-      </form>
-    </div>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="What are you searching for?"
+        onChange={handleSearchChange}
+        value={value}
+      />
+      <button className="btn btn-dark">Search</button>
+    </form>
   );
 }
