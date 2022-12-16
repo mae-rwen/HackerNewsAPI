@@ -36,7 +36,6 @@ export default function NewsList({ news, setPage, page}) {
 
       <div className="paginatorContainer">
       <Stack spacing={2}>
-      <Typography>Page: {page}</Typography>
       <Pagination count={50} page={page} onChange={handleChange} />
       </Stack>
       </div>

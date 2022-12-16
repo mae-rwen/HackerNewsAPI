@@ -32,12 +32,6 @@
 
 /* NewList styling */
 
-/* .NewList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
 ol ::marker {
   font-size: 15px;
 }

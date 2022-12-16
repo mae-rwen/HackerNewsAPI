@@ -39,6 +39,7 @@ function App() {
         <NewsList news={news} setPage={setPage} page={page}/>
       </main>
       <Footer news={news} setSearch={setSearch} />
+      <ToastContainer />
     </div>
   );
 }
