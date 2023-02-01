@@ -1,7 +1,4 @@
-# Made with React.js
-# Libraries to install when running the code:
-
-Bootstrap: npm install react-bootstrap bootstrap
-Axios: npm install react-axios
-Toastify: npm install --save react-toastify
-Pagination from Material UI: npm install @mui/material @emotion/react @emotion/styled
+# Hacker News
+WBS group project - creating an app to display news.
+Used React.js and fetching data from an external API.
+Display functionality, search and better understanding of a styling and components libraries.
